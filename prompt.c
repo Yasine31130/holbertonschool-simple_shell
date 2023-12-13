@@ -5,7 +5,7 @@
  */
 int main()
 {
-	char * line = 0;
+	char * line = NULL;
 	size_t buffer_size = 0;
 	ssize_t bytes_read;
 	const char * delimiter = " ";
@@ -15,11 +15,14 @@ int main()
 	{
 		printf("$");
 		bytes_read = getline(&line, &buffer_size, stdin);
-
-		if (bytes_read != -1)
+                // We don't do anything if bytes_read = 1 because it means that getline returned only the line break
+		if (bytes_read != 1)
+		{
+			printf("%s", line);
 			array = splitString(line, delimiter);
+			free (array);
+		}
 	}
-
 	free (line);
 	return (0);
 }

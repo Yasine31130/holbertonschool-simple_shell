@@ -8,23 +8,21 @@
 char ** splitString(char * str, const char * delimiter)
 {
 	char * token;
-	char ** array;
-	int i = 1;
+	char ** array = NULL;
+	size_t arraySize = 0;
 
-	array = malloc(sizeof(array));
-	
+	// Tokenize the string
 	token = strtok(str, delimiter);
-	array[0] = token;
 
 	while (token != NULL)
 	{
-		printf("%s\n", token);
-		token = strtok (NULL, delimiter);
-		if (token != NULL)
-		{
-			array[i] = token;
-			i = i + 1;
-		}
+		arraySize++;
+		// Dynamically reallocate memory to the array each time we are adding a token
+		array = realloc(array, (arraySize) * sizeof(char *));
+		array[arraySize - 1] = token;
+
+		// Move to the next token
+		token = strtok(NULL, delimiter);
 	}
 
 	return(array);

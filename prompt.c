@@ -10,10 +10,6 @@ int main()
 	ssize_t bytes_read;
 	const char * delimiter = " ";
 	char ** array;
-	pid_t ppid;
-
-	ppid = getppid();
-	printf("%d\n", ppid);
 
 	while (1)
 	{

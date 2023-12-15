@@ -10,12 +10,16 @@ int main()
 	ssize_t bytes_read;
 	const char * delimiter = " ";
 	char ** array;
+	pid_t ppid;
+
+	ppid = getppid();
+	printf("%d\n", ppid);
 
 	while (1)
 	{
 		printf("$");
 		bytes_read = getline(&line, &buffer_size, stdin);
-                // We don't do anything if bytes_read = 1 because it means that getline returned only the line break
+                /** We don't do anything if bytes_read = 1 because it means that getline returned only the line break**/
 		if (bytes_read != 1)
 		{
 			printf("%s", line);

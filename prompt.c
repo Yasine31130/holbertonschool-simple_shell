@@ -11,11 +11,11 @@ int main()
 	const char * delimiter = " ";
 	char ** array;
 
-	while (1)
+	while (bytes_read != EOF)
 	{
 		printf("$");
 		bytes_read = getline(&line, &buffer_size, stdin);
-                /** We don't do anything if bytes_read = 1 because it means that getline returned only the line break**/
+		/** We don't do anything if bytes_read = 1 because it means that getline returned only the line break**/
 		if (bytes_read != 1)
 		{
 			printf("%s", line);
@@ -23,6 +23,5 @@ int main()
 			free (array);
 		}
 	}
-	free (line);
 	return (0);
 }

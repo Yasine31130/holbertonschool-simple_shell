@@ -1,45 +1,54 @@
 #include "main.h"
-
-extern char ** environ;
 /**
- * _getenv - Get the value of an environment variablr
- * @name: variable to check
- * Return: The value of the variable or NULL if it doesn't
- */
-char * _getenv(const char * name)
-{
-	int i;
-	char * token;
+ * _getenv : compares the keyword input with environment variables
+ * @name: keyword
+ * Return: NULL if fails, the value associated with the key if success
+*/
 
-	for (i = 0; environ[i]; i++)
+extern char **environ;
+
+char * _getenv(const char *name) 
+{
+	char ** env_var = environ;
+	size_t name_length;
+	char * value;
+
+	if (name == NULL || environ == NULL) 
 	{
-		token = strtok(environ[i], "=");
-		if (strcmp(token, name) == 0)
+		return (NULL);
+	}
+
+	name_length = strlen(name);
+
+	while (*env_var != NULL)
+	{
+		if (strncmp(*env_var, name, name_length) == 0 && (*env_var)[name_length] == '=')
 		{
-			token = strtok(NULL, "\0");
-			return (token);
+			/**value takes env_var from the index of value name_length + 1 ('=')**/
+			value = *env_var + name_length + 1;
+			return (value);
 		}
+		env_var++;
 	}
 	return (NULL);
 }
 
 /**
- * main - calls getenv()
- * @argc: number of arguments
- * @argv: Arguments value
- * Return: 0 SUCCESS
+ * main - calls _getenv function with PATH keyword
+ * Return: -1 if fails, 0 if success
  */
-int main(int argc, char ** argv)
+int main() 
 {
-	char ** env_val;
+	/**here getenv is called with "PATH" it could be any other key from environment variables**/
+	char * path = _getenv("PATH");
 
-	if (argc != 2)
+	if (!path)
 	{
-		printf("error\n");
+		printf("PATH not found\n");
 		return (-1);
 	}
 
-	*env_val = _getenv(argv[1]);
-	printf("%s\n", *env_val);
+	printf("PATH=%s\n", path);
+
 	return (0);
 }

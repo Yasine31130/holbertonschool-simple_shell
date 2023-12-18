@@ -1,10 +1,11 @@
 #include "main.h"
 /**
- *
+ * main - main function, gets the command user line input
+ * Return: 0 success but never executes the return as loop's infinite
  */
-int main()
+int main(void)
 {
-	char * cmd = NULL;
+	char *cmd = NULL;
 	size_t cmd_len = 0;
 	ssize_t bytes_read;
 

@@ -1,25 +1,15 @@
 #include "main.h"
 /**
- *
- */
-void _printenv(void)
-{
-	char ** env_var = environ;
-	while (*env_var != NULL) {
-		printf("%s\n", *env_var);
-		env_var++;
-	}
-}
-
-/**
- *
+ * get_args - tokenizes the commands into arguments
+ * @cmd: command user input
  */
 void get_args(char *cmd)
 {
-	char * args[MAX_ARGS];
+	char *args[MAX_ARGS];
 	size_t arg_count = 0;
-	char * token;
+	char *token;
 	unsigned int i;
+
 	token = strtok(cmd, " ");
 
 	for (i = 0; token != NULL; ++i)
@@ -42,5 +32,23 @@ void get_args(char *cmd)
 		else
 			/**Execute external command - no need to specify condition here**/
 			execute_cmd(args);
+	}
+}
+
+
+
+
+/**
+ * _printenv - prints the environment
+ *
+ */
+void _printenv(void)
+{
+	char **env_var = environ;
+
+	while (*env_var != NULL)
+	{
+		printf("%s\n", *env_var);
+		env_var++;
 	}
 }

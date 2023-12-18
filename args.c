@@ -35,14 +35,13 @@ void get_args(char *cmd)
 	if (arg_count > 0)
 	{
 		if (strcmp(args[0], "exit") == 0)
-		{
 			exit(EXIT_SUCCESS);
-		}
 
-		else if (strcmp(args[0], "env") == 0) {
+		else if (strcmp(args[0], "env") == 0)
 			_printenv();
-		}
-		/**Execute external command**/
-		execute_cmd(args);
+
+		else
+			/**Execute external command - no need to specify condition here**/
+			execute_cmd(args);
 	}
 }

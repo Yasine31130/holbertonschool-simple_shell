@@ -12,4 +12,5 @@ extern char **environ;
 void execute_cmd(char **args);
 void _printenv();
 void get_args(char *cmd);
+char *_getenv(const char *name);
 #endif

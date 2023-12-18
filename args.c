@@ -20,7 +20,6 @@ void get_args(char *cmd)
 	size_t arg_count = 0;
 	char * token;
 	unsigned int i;
-
 	token = strtok(cmd, " ");
 
 	for (i = 0; token != NULL; ++i)

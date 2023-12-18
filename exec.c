@@ -7,8 +7,8 @@ void execute_cmd(char **args)
 	pid_t pid;
 	char * path;
 	char * token;
-	char full_path[MAX_CMD_LEN];
-
+	char full_path[MAX_CMD_LEN]; 
+	
 	pid = fork();
 
 	if (pid == -1)
@@ -18,6 +18,7 @@ void execute_cmd(char **args)
 	}
 	else if (pid == 0)
 	{
+		/**search for a path**/
 		if (strchr(args[0], '/') != NULL)
 		{
 			if (execve(args[0], args, environ) == -1)
@@ -25,9 +26,11 @@ void execute_cmd(char **args)
 				perror(args[0]);
 				exit(EXIT_FAILURE);
 			}
+			wait(NULL);
+			exit(EXIT_SUCCESS);
 		}
 		/**If no path is provided, search for the executable in PATH**/
-		path = getenv("PATH");
+		path = _getenv("PATH");
 		token = strtok(path, ":");
 
 		while (token != NULL)

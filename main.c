@@ -2,7 +2,7 @@
 /**
  *
  */
-void main()
+int main()
 {
 	char * cmd = NULL;
 	size_t cmd_len = 0;
@@ -37,4 +37,5 @@ void main()
 		cmd = NULL;
 		cmd_len = 0;
 	}
+	return (0);
 }

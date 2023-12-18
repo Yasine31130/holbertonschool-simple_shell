@@ -2,7 +2,7 @@
 /**
  *
  */
-int main()
+void main()
 {
 	char * cmd = NULL;
 	size_t cmd_len = 0;
@@ -10,6 +10,7 @@ int main()
 
 	while (1)
 	{
+		/**we check that we are in interactive mode**/
 		if (isatty(STDIN_FILENO))
 		{
 			printf("$ ");
@@ -26,9 +27,8 @@ int main()
 		}
 
 		/**Remove extra linebreak when user press enter**/
-		if (cmd[bytes_read - 1] == '\n') {
+		if (cmd[bytes_read - 1] == '\n')
 			cmd[bytes_read - 1] = '\0';
-		}
 
 		get_args(cmd);
 
@@ -37,6 +37,4 @@ int main()
 		cmd = NULL;
 		cmd_len = 0;
 	}
-
-	return 0;
 }

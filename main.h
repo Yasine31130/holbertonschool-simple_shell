@@ -10,6 +10,9 @@
 #define MAX_ARGS 32
 extern char **environ;
 void execute_cmd(char **args);
+char *_getenv(const char *name);
+void execute_command(char **args);
+void search_in_path(char **args, char *path);
 void _printenv();
 void get_args(char *cmd);
 char *_getenv(const char *name);

@@ -21,8 +21,11 @@ int main(void)
 		bytes_read = getline(&cmd, &cmd_len, stdin);
 
 		if (bytes_read == -1)
-		{
-			printf("\n");
+		{	
+			if (isatty(STDIN_FILENO))
+			{
+				printf("\n");
+			}
 			free(cmd);
 			exit(EXIT_SUCCESS);
 		}

@@ -25,7 +25,7 @@ void search_in_path(char **args, char *path)
         /**Check if the command exists in the current directory**/
         if (strcmp(args[0], "ls") == 0 && access(args[0], F_OK) == 0)
         {
-            // Execute the command in the current directory
+            /**Execute the command in the current directory**/
             if (execve(args[0], args, environ) == -1)
             {
                 perror(args[0]);

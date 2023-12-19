@@ -22,7 +22,7 @@ void search_in_path(char **args, char *path)
         strcat(full_path, "/");
         strcat(full_path, args[0]);
 
-        // Check if the command exists in the current directory
+        /**Check if the command exists in the current directory**/
         if (strcmp(args[0], "ls") == 0 && access(args[0], F_OK) == 0)
         {
             // Execute the command in the current directory
@@ -33,10 +33,10 @@ void search_in_path(char **args, char *path)
             }
         }
 
-        // Check if the command exists in the directory specified in the PATH
+        /**Check if the command exists in the directory specified in the PATH**/
         if (access(full_path, F_OK) == 0)
         {
-            // Execute the command with the specified path
+            /**Execute the command with the specified path**/
             if (execve(full_path, args, environ) == -1)
             {
                 perror(args[0]);
@@ -45,7 +45,7 @@ void search_in_path(char **args, char *path)
         }
         token = strtok(NULL, ":");
     }
-    // Display an error message if the command was not found
+    /**Display an error message if the command was not found**/
     fprintf(stderr, "%s: command not found\n", args[0]);
     exit(EXIT_FAILURE);
 }

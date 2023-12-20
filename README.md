@@ -67,10 +67,10 @@ To access [the man page](https://github.com/Yasine31130/holbertonschool-simple_s
 - The prompt is displayed again each time a command has been executed.
 - Handles arguments.
 - Handles errors.
-- Handles the “end of file” condition (Ctrl+D)
-- Handle built-in commands : 
+- Handles the “end of file” condition (Ctrl+D).
+- Handlebuilt-in commands : 
     - `env` : to print the environment
-    - `exit`: to exit the program
+    - `exit` : to exit the program
 ## Usage examples
 In interactive mode :
 

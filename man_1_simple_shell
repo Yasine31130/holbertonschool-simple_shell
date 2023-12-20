@@ -1,1 +1,60 @@
-man
+.TH "Simple Shell" "1" "December 20th 2023" "Holberton School Project"
+.SH NAME
+Simple Shell \- A simple command-line interpreter
+
+.SH SYNOPSIS
+.B #include main.h
+.br
+.B int main(void);
+
+.B ./hsh
+.SH FILES
+main.h
+.br
+main.c
+.br
+args.c
+.br
+exec.c
+.br
+exec_err.c
+.br
+_getenv.c
+.br
+path.c
+
+.SH DESCRIPTION
+The simple shell is a UNIX command interpreter that takes user inupt and executes them as commands.
+
+.SH COMMANDS
+The simple shell can execute any command available in the PATH and the following built-in commands :
+
+- `exit`: Exits the program.
+
+- `env`: Print the environment.
+
+.SH RETURN VALUES
+Returns 0 if no error encountered.
+
+.SH EXAMPLES
+.B Usage examples:
+
+.TP
+.nf
+
+$ ./hsh
+$ ls
+hsh main.c shell.c
+$ exit
+
+$ echo "ls" |./hsh
+hsh main.c shell.c
+
+.SH AUTHORS
+Written by Mathilde Pavaux and Yasine Benslika.
+
+.SH REPORTING BUGS
+Report any bugs to 7547@holbertonstudents.com and yasine.benslika@hotmail.com.
+
+.SH COPYRIGHT
+This is a free software, you are free to change and redistribute it.

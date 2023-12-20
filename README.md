@@ -68,7 +68,7 @@ To access [the man page](https://github.com/Yasine31130/holbertonschool-simple_s
 - Handles arguments.
 - Handles errors.
 - Handles the “end of file” condition (Ctrl+D).
-- Handlebuilt-in commands : 
+- Handles built-in commands : 
     - `env` : to print the environment
     - `exit` : to exit the program
 ## Usage examples

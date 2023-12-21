@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * execute_cmd - executes the command arguments
+ * check_path - check if there's path to wether execute the cmd or search path
  * @args: command arguments
  */
-void execute_cmd(char **args)
+void check_path(char **args)
 {
 	pid_t pid;
 	char *path;

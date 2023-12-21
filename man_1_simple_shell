@@ -15,9 +15,9 @@ main.c
 .br
 args.c
 .br
-exec.c
+check_path.c
 .br
-exec_err.c
+exec_cmd.c
 .br
 _getenv.c
 .br

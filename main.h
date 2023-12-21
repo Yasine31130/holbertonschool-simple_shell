@@ -9,7 +9,7 @@
 #define MAX_CMD_LEN 1024
 #define MAX_ARGS 32
 extern char **environ;
-void execute_cmd(char **args);
+void check_path(char **args);
 void execute_command(char **args);
 void search_in_path(char **args, char *path);
 int compare_strings(const void *a, const void *b);

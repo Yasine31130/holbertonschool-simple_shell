@@ -1,5 +1,5 @@
 #include "main.h"
-/**
+/*
  * get_args - tokenizes the commands into arguments
  * @cmd: command user input
  */
@@ -31,7 +31,7 @@ void get_args(char *cmd)
 
 		else
 			/**Execute external command - no need to specify condition here**/
-			execute_cmd(args);
+			check_path(args);
 	}
 }
 

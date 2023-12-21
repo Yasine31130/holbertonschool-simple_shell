@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * execute_command - handle failure for the cmd executed
+ * execute_command - execute cmd and handle fail
  * @args: command arguments
  */
 void execute_command(char **args)

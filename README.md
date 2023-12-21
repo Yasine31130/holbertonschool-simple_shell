@@ -22,6 +22,11 @@ To access [the man page](https://github.com/Yasine31130/holbertonschool-simple_s
 - The program must be compiled with gcc (GNU Compiler Collection).
 
 - The code must be in Betty style.
+
+## Compilation
+
+Compile the program with `gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh`
+
 ## Allowed functions
 
 -   all functions from strings.h
@@ -77,21 +82,21 @@ In interactive mode :
 ```
 $ ./hsh
 $ /bin/ls
-hsh main.c main.h args.c exec.c exec_err.c man_1_simple_shell path.c
+hsh main.c main.h args.c check_path.c exec_cmd.c man_1_simple_shell path.c
 $ exit
 ```
 In non-interactive mode :
 
 ```
 $ ls
-script_mode.txt hsh main.c main.h args.c exec.c exec_err.c man_1_simple_shell path.c
+script_mode.txt hsh main.c main.h args.c check_path.c exec_cmd.c man_1_simple_shell path.c
 $ cat script_mode.txt
 ls
 /bin/ls
 echo "coucou"
 $ ./hsh < script_mode.txt
-script_mode.txt hsh main.c main.h args.c exec.c exec_err.c man_1_simple_shell path.c
-script_mode.txt hsh main.c main.h args.c exec.c exec_err.c man_1_simple_shell path.c
+script_mode.txt hsh main.c main.h args.c check_path.c exec_cmd.c man_1_simple_shell path.c
+script_mode.txt hsh main.c main.h args.c check_path.c exec_cmd.c man_1_simple_shell path.c
 coucou
 ```
 Errors handling :
@@ -106,9 +111,9 @@ $ echo "qwerty" | ./hsh
 |:-------|:---------:|
 |`main.c`|The main function gets the comand user line input.|
 |`args.c`|Tokenizes the commands into arguments and contains the function to print the environment.|
-|`exec.c`| It executes the command arguments.|
-|`exec_err.c`|Handles failures for the command executions.|
-|`_getenv.c`|Custom `getenv` function not allowed.|
+|`check_path.c`| It checks if there is a path to wether execute the cmd or search path and execute.|
+|`exec_cmd.c`|Executes cmd and handles fail.|
+|`_getenv.c`|Custom `getenv` function which is not allowed.|
 |`path.c`|Handles the path when user input doesn't contain it.|
 |`main.h`|Header file, contains libraries used, macros and prototypes.|
 

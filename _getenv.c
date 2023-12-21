@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _getenv - custom getenv function, get the environments variables
+ * _getenv - custom getenv function, tokenize environments variables
  * @name: command argument to compare with the key
  * Return: the value of the environment variable
  */
@@ -15,6 +15,7 @@ char *_getenv(const char *name)
 
 		if (strcmp(token, name) == 0)
 		{
+			/**2nd token here corresponding to the value of PATH**/
 			token = strtok(NULL, "\0");
 			return (token);
 		}
